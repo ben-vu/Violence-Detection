@@ -21,9 +21,9 @@ This project implements an AI system designed to automatically identify violent 
 
 1. **Data Acquisition & Preprocessing**:
    - Downloads the **Hockey Fight Detection Dataset** (~1000 clips in .avi format).
-   - Extracts individual frames and performs resizing/normalization.
+   - Extracts individual frames and performs resizing/normalisation.
 2. **Temporal Modeling**:
-   - The Transformer model analyzes sequences of frames rather than isolated images.
+   - The Transformer model analyses sequences of frames rather than isolated images.
    - It identifies motion patterns and player interactions indicative of violence.
 3. **Training & Validation**:
    - Data is split into **80% Training**, **10% Validation**, and **10% Testing**.
@@ -33,7 +33,7 @@ This project implements an AI system designed to automatically identify violent 
 
 ## 📊 Results
 
-The model achieves performance by analyzing three primary indicators:
+The model achieves performance by analysing three primary indicators:
 - **Motion Patterns**: High-velocity transitions typical of physical altercations.
 - **Player Interactions**: Proximity and contact dynamics.
 - **Temporal Relationships**: How actions evolve over a specific frame window.
@@ -54,7 +54,7 @@ The model achieves performance by analyzing three primary indicators:
 
 - **Misclassification Risks**: Potential for false positives/negatives in security-critical contexts.
 - **Privacy Concerns**: Implications of automated surveillance in public or private spaces.
-- **Dataset Bias**: The model is optimized for sports-specific violence; performance may differ in other environments.
+- **Dataset Bias**: The model is optimised for sports-specific violence; performance may differ in other environments.
 
 ## 📄 License
 
