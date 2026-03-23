@@ -1,110 +1,58 @@
-🥊 Violence Detection in Videos using Transformer Models
+# 🥊 Violence Detection in Videos using Transformer Models
 
-📌 Overview
+This project implements an AI system designed to automatically identify violent content in video streams. Using a dataset of hockey clips, the system employs Transformer-based architectures to classify videos into binary categories: **Fight** (Label 1) or **Non-Fight** (Label 0).
 
-The goal of this project is to build an AI system capable of automatically identifying violent content in videos. Using a dataset of hockey clips, we train and evaluate models that classify videos into:
+## 🚀 Features
 
-Fight (Violent) → Label 1
-Non-Fight (Non-violent) → Label 0
+- **Transformer-based Architecture**: Leverages self-attention mechanisms to handle complex temporal relationships across video frames.
+- **End-to-End Pipeline**: Integrated workflow covering data acquisition, frame extraction, and model evaluation.
+- **Automated Data Management**: Seamless dataset downloading and integrity verification via `kagglehub`.
+- **GPU Acceleration**: Built-in support for CUDA to handle intensive video processing and training.
 
-The project demonstrates:
+## 🧠 Requirements
 
-End-to-end video data processing
-Frame extraction and preprocessing
-Transformer-based modeling for video classification
-Evaluation of model performance
+- Python 3.x
+- Jupyter Notebook or Google Colab
+- Installed Python packages:
+  `pip install torch torchvision opencv-python numpy matplotlib scikit-learn kagglehub`
+- Active Kaggle account (for dataset access)
 
-📂 Dataset
-Dataset: Hockey Fight Detection Dataset
-Source: Kaggle (via kagglehub)
-Size: ~1000 video clips (.avi format)
-Classes:
-fi*.avi → Fight
-no*.avi → Non-fight
-📥 Download
+## ⚙️ How It Works
 
-The dataset is automatically downloaded using:
+1. **Data Acquisition & Preprocessing**:
+   - Downloads the **Hockey Fight Detection Dataset** (~1000 clips in .avi format).
+   - Extracts individual frames and performs resizing/normalization.
+2. **Temporal Modeling**:
+   - The Transformer model analyzes sequences of frames rather than isolated images.
+   - It identifies motion patterns and player interactions indicative of violence.
+3. **Training & Validation**:
+   - Data is split into **80% Training**, **10% Validation**, and **10% Testing**.
+   - Uses fixed random seeds to ensure result reproducibility.
+4. **Evaluation**:
+   - Models are tested on unseen data to generate performance metrics including accuracy and loss.
 
-pip install kagglehub
-import kagglehub
-path = kagglehub.dataset_download("...")
-🛠️ Project Pipeline
-1. Data Acquisition & Verification
-Automatically downloads dataset
-Verifies dataset integrity
-Confirms total number of video files
-2. Data Exploration
-Random video sampling (fight vs non-fight)
-Video playback (converted from .avi → .mp4)
-Frame inspection using OpenCV
-3. Preprocessing
-Extract frames from videos
-Resize and normalize frames
-Convert videos into model-friendly format
-4. Dataset Splitting
-Train / Validation / Test split:
-80% Training
-10% Validation
-10% Testing
-5. Model Development
-Transformer-based architecture for video classification
-Handles temporal relationships across frames
-6. Training
-GPU acceleration (CUDA if available)
-Reproducibility using fixed random seeds
-7. Evaluation
-Model tested on unseen data
-Performance metrics tracked (e.g., accuracy)
-🧠 Technologies Used
-Python
-PyTorch
-OpenCV
-NumPy
-Matplotlib
-Scikit-learn
-KaggleHub
-⚙️ Installation
+## 📊 Results
 
-Clone the repository and install dependencies:
+The model focuses on three primary indicators to distinguish between scenes:
+- **Motion Patterns**: High-velocity transitions typical of physical altercations.
+- **Player Interactions**: Proximity and contact dynamics.
+- **Temporal Relationships**: How actions evolve over a specific frame window.
 
-git clone <your-repo-url>
-cd <repo-name>
-pip install -r requirements.txt
+> [!NOTE]
+> Add your final accuracy, loss curves, or confusion matrix here to complete the documentation.
 
-Or manually install core libraries:
+## 📁 Project Structure
 
-pip install torch torchvision opencv-python matplotlib scikit-learn kagglehub
-▶️ Usage
+- `main.ipynb`: Main notebook containing the full pipeline from data loading to evaluation.
+- `requirements.txt`: List of necessary Python dependencies.
+- `README.md`: Project documentation and setup guide.
 
-Run the notebook:
+## ⚠️ Ethical Considerations
 
-jupyter notebook Violence_Detection_Transformer_Models.ipynb
+- **Misclassification Risks**: Potential for false positives/negatives in security-critical contexts.
+- **Privacy Concerns**: Implications of automated surveillance in public or private spaces.
+- **Dataset Bias**: The model is optimized for sports-specific violence; performance may differ in other environments.
 
-Or in Google Colab:
+## 📄 License
 
-Upload the notebook
-Run all cells sequentially
-📊 Results
-
-The model learns to distinguish between fight and non-fight scenes by analyzing:
-
-Motion patterns
-Player interactions
-Temporal frame relationships
-
-(Add your final accuracy, loss curves, or confusion matrix here if available)
-
-🚀 Future Improvements
-Use larger and more diverse violence datasets
-Implement advanced video transformers (e.g., TimeSformer, ViViT)
-Real-time video stream detection
-Improve robustness to lighting and camera angles
-Deploy as a web or surveillance system
-⚠️ Ethical Considerations
-Misclassification risks (false positives/negatives)
-Privacy concerns in surveillance applications
-Potential bias in dataset (sports-specific violence only)
-
-📄 License
-
-This project is for educational and research purposes.
+This project is intended for educational and research purposes.
